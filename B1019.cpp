@@ -8,12 +8,39 @@
 #include <iostream>
 using namespace std;
 
-int cmp1(int x, int y) {
-	return x > y;
+int bigger(int input,int b[]) {
+	int i = 0, j = 0, max = 0, output = 0, t = 1000, a[4];
+	for (i = 0; i < 4; i++) {
+		a[i] = input / t;
+		b[i] = a[i];
+		input -= a[i] * t;
+		t = t / 10;
+
+	}
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 4; j++) {
+			if (a[j] > a[max]) {
+				max = j;
+			}
+		}
+		output = output * 10 + a[max];
+		a[max] = -1;
+	}
+	return output;
 }
 
-int cmp2(int x, int y) {
-	return x < y;
+int smaller(int a[]) {
+	int i = 0, j = 0, min = 0, output = 0, t = 1000, flag = 0;
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 4; j++) {
+			if (a[j] < a[min]) {
+				min = j;
+			}
+		}
+		output = output * 10 + a[min];
+		a[min] = 10;
+	}
+	return output;
 }
 
 int main() {
@@ -23,49 +50,27 @@ int main() {
 	char t = '0';
 	int temp = 0, temp1 = 0;
 	int x = 0, y = 0, z = 0, flag = 0;
-	vector<int> a, b, c, d;
+	int a[4] = { 0,0,0,0 };
 
-	for (i = 0; i < 4; i++) {
-		scanf("%c", &t);
-		a.push_back(t - '0');
+	scanf("%d", &temp);//ÊäÈë
+	x = bigger(temp, a);
+	y = smaller(a);
+	temp = x - y;
+	if (x == y) {
+		printf("%04d - %04d = 0000", x, y);
+		return 0;
 	}
-	while (flag != 6174) {
-		//½µĞò
-		sort(a.begin(), a.end(), cmp1);
-		for (i = 0; i < 4; i++) {
-			b.push_back(a[i]);
-			x = x * 10 + a[i];
-		}
-		//ÉıĞò
-		sort(a.begin(), a.end(), cmp2);
-		for (i = 0; i < 4; i++) {
-			c.push_back(a[i]);
-			y = y * 10 + a[i];
-		}
-		z = x - y;
-		flag = z;
-		if (z == 0) {
-			printf("%d%d%d%d - %d%d%d%d = 0000\n", b[0], b[1], b[2], b[3], c[0], c[1], c[2], c[3]);
-			return 0;
-		}
-		else
-		{
-			a.clear();
-			temp = 1000;
-			for (i = 0; i < 4; i++) {
-				temp1 = z / temp;
-				z = z % temp;
-				temp = temp / 10;
-				a.push_back(temp1);
-			}
-			printf("%d%d%d%d - %d%d%d%d = %d%d%d%d\n", b[0], b[1], b[2], b[3], c[0], c[1], c[2], c[3]
-			,a[0],a[1],a[2],a[3]);
-		}
-		b.clear(); c.clear();
-		x = 0; y = 0;
+	else
+	{
+		printf("%04d - %04d = %04d\n", x, y, temp);
+	}
+	while (temp != 6174) {
+		x = bigger(temp, a);
+		y = smaller(a);
+		temp = x - y;
+		printf("%04d - %04d = %04d\n", x, y,temp);
 	}
 	
-
 
 	return 0;
 }
