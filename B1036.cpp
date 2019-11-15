@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*#define _CRT_SECURE_NO_WARNINGS
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -21,3 +21,4 @@ int main() {
 	printf("\n");
 	return 0;
 }
+*/

@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 
-	int n = 0;
+	int n = 0, t = 0;
 	int i = 0, j = 0;
 
 	return 0;
