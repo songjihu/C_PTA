@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,8 +32,6 @@ int main() {
 		v.push_back(temp);
 	}
 	sort(v.begin(), v.end(), cmp);//从高到低排序
-	/*for (i = 0; i < n; i++)
-		printf("%s%d\n", v[i].name, v[i].height);*/
 	m = n / k + n % k;//最后一排人数m
 	char a[10002][10];
 	for (i = 0; i < k; i++) {
@@ -51,3 +49,4 @@ int main() {
 	}
 	return 0;
 }
+*/
