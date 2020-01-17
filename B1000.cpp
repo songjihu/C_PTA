@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-	int n = 0, t = 0, i = 0, j = 0;
+	int n, t, i, j;
 
 	return 0;
 }*/
